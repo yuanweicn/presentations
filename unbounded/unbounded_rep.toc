@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{Preliminary}{2}{0}{1}
+\beamer@sectionintoc {2}{Fuglede-Putnam Theorem}{10}{0}{2}
+\beamer@sectionintoc {3}{A Humble Example}{37}{0}{3}
