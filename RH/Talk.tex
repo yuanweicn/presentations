@@ -1,0 +1,162 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{color} %% to use color: \textcolor{color}{words to be in color} 
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+
+\newcommand{\C}{\mathbb C }
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\G}{\mathcal G}
+
+\title{Minor talk}
+\author{Wei Yuan}                                       
+
+\begin{document}
+\maketitle
+
+Thank you all for coming. The title of my talk is "A Necessary and Sufficient Condition for 
+Riemann Hypothesis".  Whenever I think about analytic number theory, I will connect it with pages 
+after pages of complicated computation and estimation, since I am not good at calculating, 
+analytic number theory is always a mystery to me. Finally this term, I make up my mind to do some 
+computation and hope that I can at least decipher a little piece of their terminology and methodology. 
+I can not think out best way to achieve this by playing with the $\zeta$ function, at least there are 
+so many people obsessed with it. 
+
+I believe everyone here know what the Riemann's Zeta function is. But because review always help 
+us understand a subject better, I will start by reviewing some basic facts about $\zeta$ function. Through
+this talk, we use $z$ to denote complex number, and $x$ as its real part, $y$ as its maginary part, that is
+$z = x + iy$, where $i$ is the  imaginary unit. Before talk about $\zeta$ function, we need first remember 
+some property of $\Gamma$ function, it's one of the key ingredients to study $\zeta$ function(extend it
+to the entire complex plane except $1$). 
+
+Define the $\Gamma$ function by:
+\begin{align*}
+\Gamma(z) = \int^{\infty}_{0} e^{-t} t^{z-1} dt.
+\end{align*}
+This defines an analytic function on $x > 0$. $\Gamma$ can be continued to a nowhere-zero meromorphic
+function on all $\mathbb{C}$ with simple ploes at $0, -1, -2, \ldots$. Equivalently, $\Gamma(1-z)$ has simple
+poles at $z= 1, 2, \ldots$, all the positive integers, and the residue of $\Gamma(1-z)$ at $z = k$ is :
+\begin{align*}
+\frac{(-1)^{k-1}}{(k-1)!}.
+\end{align*}
+We will need this fact latter.
+
+With these in mind, we can start talking about Riemann's zeta-function. $\zeta(z)$ has its origin in the following 
+identity:
+\begin{align*}
+\sum^{\infty}_{n=1} \frac{1}{n^z} = \zeta(z) = \prod_{p} (1 - \frac{1}{p^z})^{-1}, x > 1
+\end{align*}
+The left hand side is a  Dirichlet series, the right hand side is the Eular product(infinite product).(Talk about the upper
+bound of $\zeta$).
+
+By the equation above, it's not hard to get the following expression of  $\frac{1}{\zeta(z)}$ for $x > 1$:
+\begin{align*}
+\frac{1}{\zeta(z)} = \prod_{p} (1 - \frac{1}{p^z})  
+                                  = \sum^{\infty}_{n=1} \frac{\mu(n)}{n^z},  x > 1.
+\end{align*}
+(Explain the m$\ddot{o}$bius function and the upper bound of $\frac{1}{\zeta(z)}$.)
+
+But what exactly does the zeta function looks like? Thanks  to the modern technology---show the pics. We 
+can have a vague picture of what the landscape of the zeta function looks like.
+
+This picture depict the absolute value of zeta function $0 < x <  2$.
+Despite the infinite peak over the number $1$,  it seems possible to extend the landscape of zeta function 
+to the left of the line passing through number $1$. Although the former equation may not make sense if you 
+put in numbers with real part less than $1$, the geometry of the landscape indicate otherwise.
+Since the landscapes has an extraordinarily rigid geometry, there is only one way that the landscpe could be 
+expended. In his paper "On the number of primes less than a given magnitued(1859)", Riemann succeeded in finding 
+another formula that could be used to build the missing landscape and gave the following function equation:
+\begin{align*}
+\zeta(z) = 2^{z}\pi^{z-1}sin(\frac{1}{2}z\pi)\Gamma(1-z)\zeta(1-z),  \forall z \in \C.
+\end{align*}
+By this identity, we can see that since $-2, -4, -6, \ldots$, are the zeros of $\sin(\frac{1}{2}\pi z)$, $\zeta$ has 
+zeros at those points(explain the behavior of $\Gamma$ and $\zeta$ when $z > 1$). Because those zeros 
+are so easy to find, there are called the trivial zeros.
+
+If define 
+\begin{align*}
+\xi(z) &= \frac{1}{2}z(z-1)\pi^{-\frac{1}{2}z}\Gamma(\frac{1}{2}z)\zeta(z), \\
+\Xi(z) &= \xi(\frac{1}{2} + iz).
+\end{align*}
+The functional equation can be write in a symmetric form:$\Xi(z) = \Xi(-z)$, in another word $\Xi(z)$ is a even
+function. Notice that $\Xi(z)$ is an entire function and do not have zero outside the "critical strip" ( $ 0 \leq x \leq 1$), since the zeros at 
+negative even number are cancel by the simple poles of $\Gamma (\frac{1}{2}z)$, and $z \in \C $ is a 
+nontrivial zero of $\zeta$ iff $z$ is a zero of $\Xi(z)$.
+
+In the very same paper, Riemann states the \textbf{Riemann hypothesis} in terms
+of roots of $\Xi(z)$(actually is $\frac{\Xi(z)}{z(1-z)}$) :\\
+\textbf{......it is very probable that all roots are real. Of course one would wish for a stricter proof here; 
+I have for the time being, after some fleeting futile attempts, provisionally put aside the search for this, 
+as it appears unnecessary for the next objective of my investigation.}
+
+\begin{center}
+\textcolor{red}{ \Large \textbf{Riemann hypothesis}}\\
+\textcolor{red}{\Large All (nontrival) zero of $\zeta(z)$ have real part $\frac{1}{2}$.}
+\end{center}
+Since conjectured by Riemann, it has withstood concentrated efforts from many outstanding mathematicians for
+almost 150 years, and is considered by many mathematicians to be the most important unresolved problem in
+pure mathematics.
+
+For the rest of this talk, I will give a Necessary and Sufficient Conditions for the Riemann Hypothesis
+which is a refinement of a classical result due to M. Riesz(1916). In order to state the condition, we
+first introduce the Bernoulli's number $B_k$, those are the numbers given by:
+\begin{align*}
+\frac{z}{e^{z} -1} + \frac{1}{2}z =  1 + B_1\frac{z^{2}}{2!} - B_2 \frac{z^{4}}{4!} + \cdots. \\
+\end{align*}
+and it can be showed that 
+\begin{align*}
+\zeta(2k) = 2^{2k -1}\pi^{2k}\frac{B_k}{(2k)!}(k = 1, 2, \ldots). 
+\end{align*}
+Now, let 
+\begin{align*}
+A_k &= \frac{(2\pi)^{2}}{(2k+2)(2k+1)} \frac{B_{k+1}}{B_k} = \frac{\zeta(2m+2)}{\zeta(2m)}.\\
+f(t) &= \sum^{\infty}_{k = 1} \frac{(-1)^{k-1}A_k}{(k-1)!}t^{k}.
+\end{align*}
+The condition can be stated as following:\\
+The Riemann Hypothesis is equivalent to the following statement:\\
+
+For any $\epsilon > 0 $, there exists a constant $C(\epsilon) > 0$ such that for any $t > 1$, 
+%actually only need a a \in R, t >a the following hold
+\begin{align*}
+|f(t)| \leq C(\epsilon) t^{\frac{1}{4} + \epsilon}  .
+\end{align*}
+To see why this is true, we first show that RH implies our upper bound estimate.\\
+Let 
+\begin{align*}
+I(c,t) = \frac{1}{2\pi i} \int^{c + \infty}_{c -\infty} \frac{\zeta(2z +2)\Gamma(1-z)}{\zeta(2z)}t^{z} dz.
+\end{align*}
+for all $c \in \R$ and $c \notin \Z$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}  
